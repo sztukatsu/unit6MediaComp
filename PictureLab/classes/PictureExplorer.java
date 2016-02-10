@@ -56,6 +56,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
   /** blue value label */
   private JLabel bValue;
   /** color swatch label */
+  private JLabel tValue;
+  
+  
   private JLabel colorLabel;
   /** panel to show the color swatch */
   private JPanel colorPanel;
@@ -369,6 +372,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     rValue = new JLabel("R: " + pixel.getRed());
     gValue = new JLabel("G: " + pixel.getGreen());
     bValue = new JLabel("B: " + pixel.getBlue());
+    tValue = new JLabel("A: " + pixel.getColor().getTransparency());
     
     // create the sample color panel and label
     colorLabel = new JLabel("Color at location: ");
@@ -382,6 +386,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     rValue.setFont(labelFont);
     gValue.setFont(labelFont);
     bValue.setFont(labelFont);
+    tValue.setFont(labelFont);
     colorLabel.setFont(labelFont);
     colorPanel.setPreferredSize(new Dimension(25,25));
     
@@ -389,6 +394,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     colorInfoPanel.add(rValue);
     colorInfoPanel.add(gValue);
     colorInfoPanel.add(bValue);
+    colorInfoPanel.add(tValue);
     colorInfoPanel.add(colorLabel);
     colorInfoPanel.add(colorPanel);
     
@@ -577,6 +583,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
       rValue.setText("R: " + pixel.getRed());
       gValue.setText("G: " + pixel.getGreen());
       bValue.setText("B: " + pixel.getBlue());
+      tValue.setText("A: " + pixel.getColor().getTransparency());
       colorPanel.setBackground(new Color(pixel.getRed(), pixel.getGreen(), pixel.getBlue()));
       
     } 
@@ -621,6 +628,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     rValue.setText("R: N/A");
     gValue.setText("G: N/A");
     bValue.setText("B: N/A");
+    tValue.setText("A: N/A");
     colorPanel.setBackground(Color.black);
     colIndex = -1;
     rowIndex = -1;
